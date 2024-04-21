@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}FITFLEX SIGN UP{% endblock %}
+
+{% block page %}FITFLEX SIGN UP PAGE{% endblock %}
+
+
+{% block content %}
+
+<div class="content fill-space">
+  <img class="grow-2 page-img" src="/static/css/img/workout1.jpeg">
+  <div class="subcontent center-vertical">
+    <h4 class="center">Sign Up</h4>
+
+    <form id="signupForm" method="POST" action="/signup" style="padding:1em">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="username">Username</label><br>
+          <input placeholder="user" name="username" type="text" class="validate">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="email">Your email</label><br>
+          <input placeholder="example@mail.com" name="email" type="email" class="validate">
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password1">Password</label><br>
+          <input placeholder="Enter Password" name="password1" type="password" class="validate">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password2">Password (Confirm)</label><br>
+          <input placeholder="Re-Enter Password" name="password2" type="password" class="validate">
+        </div>
+      </div>      
+
+      <div class="row justify-content">
+        <div class="col s8 card-action left-align" style="margin-left:0;">
+          <a href="/login">&larr; Back to Login</a>
+        </div>
+        <div class="col s3 card-action right-align">
+          <input type="submit" class="blue text-white btn" value="Sign up">
+        </div>
+      </div>
+  
+    </form>
+  </div>
+</div>
+{% endblock %}
