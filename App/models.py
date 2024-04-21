@@ -32,22 +32,6 @@ class User(db.Model, UserMixin):
       return True
     return None
 
-#    def removeWorkout(self, workout_name):
-#    user_workout = UserWorkout.query.filter_by(user_id=self.id, workout_name=workout_name).first()
-#    if not user_workout:
-#      print(f"Error: workout {workout_name} not found in user's routine")
-#      return None
-#    try:
-#      db.session.delete(user_workout)
-#      db.session.commit()
-#      print(f"Workout {workout_name} removed from user's routine")
-#      return user_workout
-#    except Exception as e:
-#      print(f"Error removing workout: {e}")
-#      db.session.rollback()
-#      return None
-#    
-
 #Workouts
 class Workout(db.Model):
   name = db.Column(db.String(80))

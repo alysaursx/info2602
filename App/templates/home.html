@@ -1,10 +1,8 @@
-<!--816030849-->
-<!--Eysah Ali-->
 {% extends "layout.html" %}
 
 {% block title %}Home{% endblock %}
 
-{% block page %}Home{% endblock %}
+{% block page %}FITFLEX{% endblock %}
 
 {% block link%}
 <ul id="nav-mobile" class="right">
@@ -21,6 +19,7 @@
     .collection .collection-item.active{
         background-color: #E53935;
     }
+    
 {% endblock %}
 
 
@@ -32,7 +31,7 @@
                 <li class="collection-item">
                     <form class="row" method="POST">
                         <span class="card-title">
-                            <a id="poke-{{ workout.id }}" class="collection-item {% if workout == selected_workout %}active white-text{% else %}black-text{% endif %}" href="/{{ workout.id }}#work-{{ workout.id }}">{{workout.name}}</a>
+                            <a id="work-{{ workout.id }}" class="collection-item {% if workout == selected_workout %}blue white-text{% else %}black-text{% endif %}" href="/{{ workout.id }}#work-{{ workout.id }}">{{workout.name}}</a>
                         </span>
                     </form>
                 </li>
@@ -45,7 +44,7 @@
 
             <p class="text-center">Selected Workout</p>
 
-            <div id="pokemon-detail">
+            <div id="workout-detail">
                 {% if selected_workout %}
                     <img class="responsive-img" src="{{selected_workout.image1}}">
                     <br>
@@ -63,7 +62,7 @@
                     <form class="row" action="/workout/{{ selected_workout.id }}" method="POST">
                         <p><input type="number" name="reps" id="reps" placeholder="reps" style="max-width: 200px;" required></p>
                         <p><input type="number" name="sets" id="sets" placeholder="sets" style="max-width: 200px;" required></p>
-                        <input type="submit" id="addWorkout" class="white-text btn" style="background-color:orangered" value="Add Workout">
+                        <input type="submit" id="addWorkout" class="white-text btn" style="background-color:darkblue" value="Add Workout">
                     </form>
                 {% endif %}
                 </span>
@@ -74,8 +73,7 @@
 
     <div class="col m6" >
         <p class="text-center">Your Routine</p>
-        <table class="responsive-table" id="pokemon-table">
-            <!-- Captured pokemon content here -->
+        <table class="responsive-table" id="routine-table">
             <thead>
                 <tr>
                     <th>Workout</th>
@@ -84,7 +82,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- show captured pokemon here with controls to rename and release for each pokemon -->
+                
                 {% for workout in current_user_routine %}
                     <tr class="collection-item">
                         <form class="row" action="/delworkout/{{ workout.id }}" method="GET">
@@ -98,9 +96,7 @@
                                 {{workout.workout_sets}}
                             </td>
                             <td>
-                                <!--<input type="text" name="pokemon_name" placeholder="" style="max-width: 200px;"  required>
-                                <input type="submit" class="white-text btn" value="Rename" style="background-color:orangered">-->
-                                <input type="submit" class="white-text btn" value="Remove Workout" style="background-color:orangered">
+                                <input type="submit" class="white-text btn" value="Remove Workout" style="background-color:darkblue">
                             </td>                            
                         </form>
                     </tr>

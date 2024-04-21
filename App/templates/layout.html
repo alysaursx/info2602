@@ -27,27 +27,27 @@
 
       /* label color */
     .input-field label {
-      color: #000;
+      color: var(--tertiary);
     }
 
     /* label underline focus color */
     .input-field input[type=text]:focus {
-      border-bottom: 1px solid #000;
-      box-shadow: 0 1px 0 0 #000;
+      border-bottom: 1px solid var(--tertiary);
+      box-shadow: 0 1px 0 0 var(--tertiary);
     }
     /* valid color */
     .input-field input[type=text].valid {
-      border-bottom: 1px solid #000;
-      box-shadow: 0 1px 0 0 #000;
+      border-bottom: 1px solid var(--tertiary);
+      box-shadow: 0 1px 0 0 var(--tertiary);
     }
     /* invalid color */
     .input-field input[type=text].invalid {
-      border-bottom: 1px solid #000;
-      box-shadow: 0 1px 0 0 #000;
+      border-bottom: 1px solid var(--tertiary);
+      box-shadow: 0 1px 0 0 var(--tertiary);
     }
     /* icon prefix focus color */
     .input-field .prefix.active {
-      color: #000;
+      color: var(--tertiary);
     }
   </style>
 
@@ -55,16 +55,17 @@
 
 <body>
   <nav>
-    <div class="nav-wrapper red darken-1">
+    <div style="background-color:darkblue">
+      <img src="static/css/img/logo1.png" alt="Logo" class="logo">
       <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
       {% block link %}{% endblock %}
     </div>
   </nav>
   <div>
-    <div class="messages">
+    <div style="background-color:lightseagreen">
       {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
-      <div id="alert" class="col s10 offset-s1 red darken-1">
+      <div id="alert" >
         <a href="" id="close">&times;</a>
         {% for message in messages %}
         <div style="font-weight: bold;text-align: center;font-size: 1.2em;margin-top: -5px;">{{ message }}</div>
@@ -80,3 +81,4 @@
 </body>
 
 </html>
+

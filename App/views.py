@@ -17,7 +17,6 @@ def home(workout_id=0):
 @views.route("/workout/<int:workout_id>", methods=['POST'])
 @login_required
 def add_workout(workout_id):
-  # implement save newly captured pokemon, show a message then reload page
   reps = request.form['reps']
   sets = request.form['sets']
   workout = Workout.query.get(workout_id)
@@ -27,7 +26,7 @@ def add_workout(workout_id):
 @views.route("/delworkout/<int:workout_id>", methods=['GET'])
 @login_required
 def del_workout(workout_id):
-  # implement save newly captured pokemon, show a message then reload page
   workout = UserWorkout.query.get(workout_id)
   routine = User.removeWorkout(current_user, workout.id)
   return redirect(request.referrer)
+  
