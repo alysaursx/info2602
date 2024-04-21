@@ -87,7 +87,7 @@
                 <!-- show captured pokemon here with controls to rename and release for each pokemon -->
                 {% for workout in current_user_routine %}
                     <tr class="collection-item">
-                        <form class="row" method="POST">
+                        <form class="row" action="/delworkout/{{ workout.id }}" method="GET">
                             <td>
                                 {{workout.workout_name}}
                             </td>
@@ -97,6 +97,11 @@
                             <td>
                                 {{workout.workout_sets}}
                             </td>
+                            <td>
+                                <!--<input type="text" name="pokemon_name" placeholder="" style="max-width: 200px;"  required>
+                                <input type="submit" class="white-text btn" value="Rename" style="background-color:orangered">-->
+                                <input type="submit" class="white-text btn" value="Remove Workout" style="background-color:orangered">
+                            </td>                            
                         </form>
                     </tr>
                 {% endfor %}

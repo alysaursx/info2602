@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
 from .models import User, Workout, UserWorkout
+from sqlalchemy.exc import IntegrityError
 
 views = Blueprint('views', __name__)
 
@@ -20,5 +21,13 @@ def add_workout(workout_id):
   reps = request.form['reps']
   sets = request.form['sets']
   workout = Workout.query.get(workout_id)
-  User.addWorkout(current_user, workout_id, workout.name, reps, sets)
+  routine = User.addWorkout(current_user, workout_id, workout.name, reps, sets)
+  return redirect(request.referrer)
+
+@views.route("/delworkout/<int:workout_id>", methods=['GET'])
+@login_required
+def del_workout(workout_id):
+  # implement save newly captured pokemon, show a message then reload page
+  workout = UserWorkout.query.get(workout_id)
+  routine = User.removeWorkout(current_user, workout.id)
   return redirect(request.referrer)
